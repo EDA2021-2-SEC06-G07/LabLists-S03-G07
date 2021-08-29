@@ -7,6 +7,9 @@ class Timer:
         self._time = 0
 
 
+    def is_timer_reset(self):
+        return self._start_time == 0
+
     def startTimer(self):
         #timer was already started
         if(self._start_time != 0):

@@ -22,6 +22,7 @@
 
 import config as cf
 import model
+import timer
 import csv
 
 
@@ -48,10 +49,23 @@ def loadData(catalog):
     Carga los datos de los archivos y cargar los datos en la
     estructura de datos
     """
+
+    t = timer.Timer()
+
+    t.startTimer()
     loadBooks(catalog)
     loadTags(catalog)
     loadBooksTags(catalog)
+    t.stopTime()
+    load_time = t.get_time()
+    print("Load time: " + str(load_time))
+
+    t.reset_timer()
+    t.startTimer()
     sortBooks(catalog)
+    t.stopTime()
+    sort_time = t.get_time()
+    print("Sort time: " + str(sort_time))
 
 
 def loadBooks(catalog):
@@ -60,8 +74,9 @@ def loadBooks(catalog):
     cada uno de ellos, se crea en la lista de autores, a dicho autor y una
     referencia al libro que se esta procesando.
     """
-    booksfile = cf.data_dir + 'GoodReads/books-small.csv'
+    booksfile = cf.data_dir + 'GoodReads/books.csv'
     input_file = csv.DictReader(open(booksfile, encoding='utf-8'))
+    i = 0
     for book in input_file:
         model.addBook(catalog, book)
 
@@ -80,7 +95,7 @@ def loadBooksTags(catalog):
     """
     Carga la información que asocia tags con libros.
     """
-    booktagsfile = cf.data_dir + 'GoodReads/book_tags-small.csv'
+    booktagsfile = cf.data_dir + 'GoodReads/book_tags.csv'
     input_file = csv.DictReader(open(booktagsfile, encoding='utf-8'))
     for booktag in input_file:
         model.addBookTag(catalog, booktag)
