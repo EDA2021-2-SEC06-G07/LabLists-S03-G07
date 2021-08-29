@@ -91,7 +91,12 @@ while True:
     if int(inputs[0]) == 1:
         print("Cargando información de los archivos ....")
         catalog = initCatalog()
+        t = timer.Timer()
+        t.startTimer()
         loadData(catalog)
+        t.stopTime()
+        print(str(t.get_time()))
+        print('Time for print line ')
         print('Libros cargados: ' + str(lt.size(catalog['books'])))
         print('Autores cargados: ' + str(lt.size(catalog['authors'])))
         print('Géneros cargados: ' + str(lt.size(catalog['tags'])))

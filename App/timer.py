@@ -22,7 +22,7 @@ class Timer:
             return -1
 
         self._time = time.time() - self._start_time
-        return 0
+        return self._time
 
 
     def get_time(self):
