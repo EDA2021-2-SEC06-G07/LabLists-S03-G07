@@ -85,64 +85,65 @@ catalog = None
 """
 Menu principal
 """
-t = timer.Timer()
-while True:
-    printMenu()
-    inputs = input('Seleccione una opción para continuar\n')
-    if int(inputs[0]) == 1:
-        print("Cargando información de los archivos ....")
+if __name__ == "__main__":
+    t = timer.Timer()
+    running = True
+    while running:
+        printMenu()
+        inputs = input('Seleccione una opción para continuar\n')
+        if int(inputs[0]) == 1:
+            print("Cargando información de los archivos ....")
 
-        t.reset_timer()
-        t.startTimer()
-        catalog = initCatalog()
-        t.stopTime()
-        print('create list: ' + str(t.get_time()))
+            t.reset_timer()
+            t.startTimer()
+            catalog = initCatalog()
+            t.stopTime()
+            print('create list: ' + str(t.get_time()))
 
-        t.reset_timer()
-        t.startTimer()
-        loadData(catalog)
-        t.startTimer()
-        print('load list: ' + str(t.get_time()))
-        
-        
-        print('Time for print line ')
-        print('Libros cargados: ' + str(lt.size(catalog['books'])))
-        print('Autores cargados: ' + str(lt.size(catalog['authors'])))
-        print('Géneros cargados: ' + str(lt.size(catalog['tags'])))
-        print('Asociación de Géneros a Libros cargados: ' +
-              str(lt.size(catalog['book_tags'])))
+            t.reset_timer()
+            t.startTimer()
+            loadData(catalog)
+            t.startTimer()
+            print('load list: ' + str(t.get_time()))
+            
+            
+            print('Time for print line ')
+            print('Libros cargados: ' + str(lt.size(catalog['books'])))
+            print('Autores cargados: ' + str(lt.size(catalog['authors'])))
+            print('Géneros cargados: ' + str(lt.size(catalog['tags'])))
+            print('Asociación de Géneros a Libros cargados: ' +
+                str(lt.size(catalog['book_tags'])))
 
-    elif int(inputs[0]) == 2:
-        number = input("Buscando los TOP ?: ")
+        elif int(inputs[0]) == 2:
+            number = input("Buscando los TOP ?: ")
 
-        t.reset_timer()
-        t.startTimer()
-        books = controller.getBestBooks(catalog, int(number))
-        t.stopTime()
-        print('best books: ' + str(t.get_time()))
-        printBestBooks(books)
+            t.reset_timer()
+            t.startTimer()
+            books = controller.getBestBooks(catalog, int(number))
+            t.stopTime()
+            print('best books: ' + str(t.get_time()))
+            printBestBooks(books)
 
-    elif int(inputs[0]) == 3:
+        elif int(inputs[0]) == 3:
 
-        authorname = input("Nombre del autor a buscar: ")
+            authorname = input("Nombre del autor a buscar: ")
 
-        t.reset_timer()
-        t.startTimer()
-        author = controller.getBooksByAuthor(catalog, authorname)
-        t.stopTime()
-        print('books by auther: ' + str(t.get_time()))
-        printAuthorData(author)
+            t.reset_timer()
+            t.startTimer()
+            author = controller.getBooksByAuthor(catalog, authorname)
+            t.stopTime()
+            print('books by auther: ' + str(t.get_time()))
+            printAuthorData(author)
 
-    elif int(inputs[0]) == 4:
-        label = input("Etiqueta a buscar: ")
+        elif int(inputs[0]) == 4:
+            label = input("Etiqueta a buscar: ")
 
-        t.reset_timer()
-        t.startTimer()
-        book_count = controller.countBooksByTag(catalog, label)
-        t.stopTime()
-        print("book count tags: " + str(t.get_time()))
-        print('Se encontraron: ', book_count, ' Libros')
+            t.reset_timer()
+            t.startTimer()
+            book_count = controller.countBooksByTag(catalog, label)
+            t.stopTime()
+            print("book count tags: " + str(t.get_time()))
+            print('Se encontraron: ', book_count, ' Libros')
 
-    else:
-        sys.exit(0)
-sys.exit(0)
+        else:
+            running = False
