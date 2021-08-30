@@ -44,7 +44,7 @@ def newList(datastructure='SINGLE_LINKED',
             delimiter=","):
     """Crea una lista vacia
 
-    Args:
+    Args:   
         datastructure:  Tipo de estructura de datos a utilizar para implementar
         la lista. Los tipos posibles pueden ser: ARRAY_LIST y SINGLE_LINKED.
 
