@@ -15,3 +15,4 @@
 8)	¿Qué hace la función subList()?
 -	Crear una lista nueva a partir de la posición y número de elementos 	de una lista seleccionada.
 9)	¿Observó algún cambio en el comportamiento del programa al cambiar la implementación del parámetro “ARRAY_LIST” a “SINGLE_LINKED”?
+-   No se observo ningun cambio notable en el tiempo de ejecucion. Mas esto no tiene sentido porque linked list deberia ser mas rapido para agregar a la lista que array list ya que linked list add es orden O(1) y array list es orden O(n) en el peor de los casos. 
