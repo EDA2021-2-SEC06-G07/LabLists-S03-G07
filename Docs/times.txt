@@ -1,2 +1,16 @@
 array_list:
-    load_data =  
+    create_list = 3.814697265625e-05 seg
+    load_list = 16.88217306137085 seg
+    sort_list = 283.2624235153198 seg
+
+    best_5_books = 7.343292236328125e-05 seg 
+    Books J.K. Rowling = 5.936622619628906e-05
+
+
+single_linked:
+    create list: 5.793571472167969e-05
+    Load time: 19.57506799697876
+    Sort time: 288.62465810775757
+
+    best_5_books: 8.20159912109375e-05
+    Books J.K. Rowling: 4.1484832763671875e-05
