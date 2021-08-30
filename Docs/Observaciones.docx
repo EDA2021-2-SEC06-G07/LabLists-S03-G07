@@ -1,0 +1,17 @@
+1)	¿Cuáles son los mecanismos de interacción (I/O: Input/Output) que tiene el view.py con el usuario?
+-	Como opción para que el usuario agregue como imput las opciones entre 0 y 5 por medio de un menú. El usuario al responder al mensaje del programa y seleccionar una opción, el programa responde como output ejecutando el programa que corresponde a esa opción pidiendo los parámetros de cada función.
+2)	¿Cómo se almacenan los datos de GoodReads en el model.py?
+-	Se crea una lista vacia donde se almacenan los datos según su clasificacion. Luego se crean las funciones para llenar cada lista.
+3)	¿Cuáles son las funciones que comunican el el view.py y el model.py?
+-	Por medio del controler.py podemos conectar las otras dos carpetas ya que en esta carpeta mencionamos model.py para llamar las listas que creamos.
+4)	¿Cómo se crea una lista?
+-	Para crear una lista vacía usamos la función newlist dependiendo del tipo de estructura.
+5)	¿Qué hace el parámetro cmpfunction=None en la función newList()?
+-	Compara los elementos de la lista. Si es NONE en la función key significa que si hay una función de comparación.
+6)	¿Qué hace la funció addLast()?
+-	Agregar un elemento en la última posición de la casilla
+7)	¿Qué hace la función getElement()?
+-	Encontrar el elemento de la posición colocada en la lista
+8)	¿Qué hace la función subList()?
+-	Crear una lista nueva a partir de la posición y número de elementos 	de una lista seleccionada.
+9)	¿Observó algún cambio en el comportamiento del programa al cambiar la implementación del parámetro “ARRAY_LIST” a “SINGLE_LINKED”?
